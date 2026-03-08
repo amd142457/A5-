@@ -109,24 +109,66 @@ const displyWorddetails = (text) => {
   const datailscontainer = document.getElementById("datails-container");
 
   datailscontainer.innerHTML = `
-  <div class="flex justify-between ">
-         <img src="${text.status === "open" ? "assets/Open-Status.png" : "assets/Closed- Status .png"}"  />
-    
-          <button class="btn rounded-full">${text.priority}</button>
+        <h2>${text.title}</h2>
+        <div class="flex gap-3">
+          <button class="py-1 px-4 rounded-full ${
+            text.status === "open"
+              ? "bg-[#00A96E] text-[#FFFFFF]"
+              : "bg-[#A855F7] text-[#FFFFFF]"
+          }">
+${text.status}
+</button>
+          <p>open by${text.author}</p>
+          <p>|| ${text.createdAt}</p>
         </div>
-       <h2 class="text-xl font-bold">${text.title}</h2>
-       <p class="line-clamp-2">${text.description}</p>
-         <div class="flex gap-4">
-            <button class="btn rounded-2xl bg-yellow-100 border-yellow-600">Bug</button>
-            <button class="btn rounded-2xl bg-red-200 border-red-950">help wanted</button>
+        <div class="flex gap-2">
+        ${
+          text.labels[0]
+            ? `<button class="btn rounded-2xl ${
+                text.labels[0] === "enhancement"
+                  ? "bg-[#BBF7D0] text-[#00A96E]"
+                  : text.labels[0] === "bug"
+                    ? "bg-[#FECACA] text-[#EF4444]"
+                    : "bg-gray-200"
+              }">${text.labels[0]}</button>`
+            : ""
+        }
+
+  ${
+    text.labels[1]
+      ? `<button class="btn rounded-2xl ${
+          text.labels[1] === "enhancement"
+            ? "bg-[#BBF7D0] text-[#00A96E]"
+            : "bg-[#FFF8DB] text-[#F59E0B]"
+        }">${text.labels[1]}
+        </button>`
+      : ""
+  }
+       
         </div>
-    <div class="border-t-1 border-t-gray-500">
-          <p> #${text.author}</p>
-          <p>${text.createdAt}</p>
+        <p class="text-[#64748B]">
+        ${text.description}
+        </p>
+        <div class="flex justify-between">
+          <div class="space-y-1">
+            <p>Assignee:</p>
+            <p>${text.author}</p>
+          </div>
+          <div class="space-y-1">
+            <p class ="p-2"> Priority:</p>
+<button class="btn rounded-full ${
+    text.priority === "low"
+      ? "bg-[#EEEFF2] text-[#9CA3AF]"
+      : text.priority === "medium"
+        ? "bg-[#FFF6D1] text-[#F59E0B]"
+        : "bg-[#FEECEC] text-[#EF4444]"
+  }">
+${text.priority}
+</button>
+          </div>
         </div>
-        </div>
-              
-    
+
+
     `;
 
   document.getElementById("my_modal_5").showModal();
@@ -143,7 +185,7 @@ document.getElementById("button").addEventListener("click", function (e) {
   }
 });
 searchBtn.addEventListener("click", function () {
-  const text = searchInput.value;
+  const text = searchInput.value.toLowerCase();
   const filtared = allData.filter((item) =>
     item.title.toLowerCase().includes(text),
   );

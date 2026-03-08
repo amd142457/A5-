@@ -11,33 +11,42 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
-  <body class="h-[100vh] bg-white">
+  <body class="h-[100vh] bg-gradient-to-br from-gray-100 to-gray-300">
     <section class="flex justify-center items-center h-[100%]">
       <div class="bg-base-200 border-base-300 rounded-box w-xs border p-4">
         <div class="text-center space-y-3">
-          <img src="github-logo.png" alt="" />
+          <div class="flex justify-center mb-4">
+            <img src="assets/github-logo.png" alt="" />
+          </div>
+
           <h2 class="font-bold text-2xl">GitHub Issues Tracker</h2>
           <p class="text-gray-600">Sign in to manage your issues</p>
         </div>
 
-        <fieldset class="fieldset space-y-3">
-          <label class="label">User Name</label>
+        <fieldset class="fieldset space-y-2">
+          <label class="label font-bold">User Name</label>
           <input
             id="user-input"
             type="text"
             class="input"
             placeholder="Enter your username"
           />
+          <p class="font-bold text-[#4A00FF] shadow-sm w-fit p-1 rounded-lg">
+            Default: admin
+          </p>
 
-          <label class="label">Password</label>
+          <label class="label font-bold">Password</label>
           <input
             id="input-pass"
             type="password"
             class="input"
             placeholder="Password"
           />
+          <p class="font-bold text-[#4A00FF] shadow-sm w-fit p-1 rounded-lg">
+            Default: admin123
+          </p>
 
-          <button id="btn" class="btn btn-neutral mt-4">Login</button>
+          <button id="btn" class="btn btn-primary mt-4">Login</button>
         </fieldset>
       </div>
     </section>
