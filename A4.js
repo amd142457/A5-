@@ -149,10 +149,10 @@ ${text.status}
         <p class="text-[#64748B]">
         ${text.description}
         </p>
-        <div class="flex justify-between">
+        <div class="flex justify-between p-3 shadow-sm">
           <div class="space-y-1">
             <p>Assignee:</p>
-            <p>${text.author}</p>
+            <p class = "font-bold">${text.author}</p>
           </div>
           <div class="space-y-1">
             <p class ="p-2"> Priority:</p>
