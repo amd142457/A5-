@@ -7,7 +7,7 @@ button.addEventListener("click", function () {
 
   if (inputText == "admin" && passWord == "admin123") {
     alert("login is succesful");
-    window.location.assign("index.html");
+    window.location.assign("logo2.html");
   } else {
     alert("please try again");
     return;
