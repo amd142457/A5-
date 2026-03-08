@@ -24,8 +24,15 @@ function showCards(details) {
   allCard.innerHTML = "";
 
   details.forEach((detail) => {
+    const borderColor =
+      detail.status === "open"
+        ? "border-t-4 border-t-green-500"
+        : "border-t-4 border-t-[#A855F7]";
+
     const card = document.createElement("div");
-    card.className = ` space-y-3 p-5 rounded-sm shadow-sm bg-white gap-4  ${detail.status === "open" ? "border-t-4 border-t-green-500" : "border-t-4 border-t-[#A855F7]"}`;
+
+    card.className = `space-y-3 p-5 rounded-sm shadow-sm bg-white gap-4 ${borderColor}`;
+
     card.innerHTML = `
     <div class="flex justify-between items-center ">
          <img class = "w-5 h-5" src="${detail.status === "open" ? "assets/Open-Status.png" : "assets/Closed- Status .png"}"  />
