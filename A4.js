@@ -72,7 +72,7 @@ ${detail.priority}
       
     <div class="border-t-1 border-t-gray-500">
           <p> #${detail.author}</p>
-          <p>${detail.createdAt}</p>
+       <p> ${new Date(detail.createdAt).toLocaleDateString()}</p>
         </div>
         </div>
     
@@ -119,7 +119,7 @@ const displyWorddetails = (text) => {
 ${text.status}
 </button>
           <p>open by${text.author}</p>
-          <p>|| ${text.createdAt}</p>
+         <p>|| ${new Date(text.createdAt).toLocaleDateString()}</p>
         </div>
         <div class="flex gap-2">
         ${
